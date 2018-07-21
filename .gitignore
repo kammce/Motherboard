@@ -9,13 +9,9 @@
 !*/
 !.gitignore
 ###############################
-## CMPE 127 special
+## Project Folder
 ###############################
-#CMPE127-Toolkit.runs/.jobs/
-CMPE127-Toolkit.runs/*
-CMPE127-Toolkit.sim/*
-!CMPE127-Toolkit.sim/KEEP_THIS_FOLDER
-!CMPE127-Toolkit.runs/KEEP_THIS_FOLDER
+Motherboard/**/*
 ###########################################################################
 ##	VIVADO
 ###########################################################################

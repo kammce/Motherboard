@@ -6,7 +6,7 @@
 //
 // Create Date: 11/28/2017 01:25:09 AM
 // Design Name:
-// Module Name: Test_PWMCapture
+// Module Name: Test_PulseCapture
 // Project Name:
 // Target Devices:
 // Tool Versions:
@@ -21,13 +21,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Test_PWMCapture;
+module Test_PulseCapture;
 
 reg success_flag;
 
 reg clk, rst;
 reg oe, clr;
-reg ext_pwm;
+reg ext_pulse;
 reg trigger;
 reg int_clr;
 wire [31:0] data;
@@ -35,13 +35,13 @@ wire int;
 
 integer i;
 
-PWMCapture U0 (
+pulseCapture U0 (
     .clk(clk),
     .rst(rst),
     .oe(oe), 			// output enable
     .clr(clr), 		// clear
     .trigger(trigger), 	// start a capture
-    .ext_pwm(ext_pwm),		// external pwm signal
+    .ext_pulse(ext_pulse),		// external pulse signal
     .int_clr(int_clr),		// interrupt flag clear signal
     .int(int), 		// interrupt flag when capture event occurs
     .data(data)
@@ -114,25 +114,25 @@ begin
     rst = 0;
 	#5
 
-	ext_pwm = 0;
+	ext_pulse = 0;
 	STROBE_TRIGGER;
-	ext_pwm = 1;
+	ext_pulse = 1;
 	CLOCK(1000);
-	ext_pwm = 0;
+	ext_pulse = 0;
 	CLOCK(1);
     CHECK_OUTPUT(1000);
 	CHECK_INTERRUPT(1);
 
 	CLOCK(1000);
 
-	ext_pwm = 0;
+	ext_pulse = 0;
 	STROBE_TRIGGER;
 	CHECK_INTERRUPT(0);
-	ext_pwm = 1;
+	ext_pulse = 1;
 	CLOCK(2000);
 	CHECK_INTERRUPT(0);
 	CLOCK(5000);
-	ext_pwm = 0;
+	ext_pulse = 0;
 	CLOCK(1);
 	CHECK_OUTPUT(7000);
 	CHECK_INTERRUPT(1);
