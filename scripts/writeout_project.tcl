@@ -7,7 +7,7 @@
 #    may be used to regenerate the project in another filesystem location.
 
 # Generate the base create_project.tcl script
-set script_directory "../script"
+set script_directory "../scripts"
 cd [get_property DIRECTORY [current_project]]
 write_project_tcl -force -all_properties -no_copy_sources -use_bd_files ./$script_directory/create_project.tcl
 
@@ -22,7 +22,7 @@ write_project_tcl -force -all_properties -no_copy_sources -use_bd_files ./$scrip
 #    the sources in a particular way. It is wrong.
 
 # Initial setup
-cd ../script
+cd ../scripts
 set timestamp [clock format [clock seconds] -format {%Y%m%d%H%M%S}]
 set filename "create_project.tcl"
 set temp     $filename.new.$timestamp
