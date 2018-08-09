@@ -39,81 +39,11 @@
 // Dependencies:
 //
 // Revision:
+// Revision 0.02 - CLOCK_GENERATOR and ONESHOT moved to Clock.v
 // Revision 0.01 - File Created
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
-
-module CLOCK_GENERATOR #(parameter DIVIDE = 2)
-(
-    input wire rst,
-    input wire fast_clk,
-    output reg slow_clk
-);
-
-reg [31:0] counter = 0;
-
-always @(posedge fast_clk or posedge rst)
-begin
-    if(rst)
-    begin
-        slow_clk <= 0;
-        counter <= 0;
-    end
-    else
-    begin
-        if(counter == DIVIDE/2)
-        begin
-            slow_clk <= ~slow_clk;
-            counter <= 0;
-        end
-        else
-        begin
-            slow_clk <= slow_clk;
-            counter <= counter + 1;
-        end
-    end
-end
-
-endmodule
-
-module ONESHOT(
-    input wire clk,
-    input wire rst,
-    input wire signal,
-    output reg out
-);
-
-reg previously_high;
-
-always @(posedge clk or posedge rst)
-begin
-    if(rst)
-    begin
-        out <= 0;
-        previously_high <= 0;
-    end
-    else
-    begin
-        if(signal && !previously_high)
-        begin
-            out <= 1;
-            previously_high <= 1;
-        end
-        else if(signal && previously_high)
-        begin
-            out <= 0;
-            previously_high <= 1;
-        end
-        else
-        begin
-            out <= 0;
-            previously_high <= 0;
-        end
-    end
-end
-
-endmodule
 
 module Motherboard #(parameter CLOCK_DIVIDER = 100)
 (

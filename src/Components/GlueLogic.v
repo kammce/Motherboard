@@ -7,8 +7,8 @@
 //
 // Create Date: 12/06/2017 09:00:36 PM
 // Design Name:
-// Module Name: GlueLogic
-// Project Name:
+// Module Name: NOT, TRIBUFFER, AND, OR, XOR, NAND, NOR, XNOR, MUX, DECODER, ENCODER, RSLATCH, DLATCH, TRIDLATCH, DFLIPFLOP, COUNTER
+// Project Name: Motherboard
 // Target Devices:
 // Tool Versions:
 // Description:
@@ -16,6 +16,7 @@
 // Dependencies:
 //
 // Revision:
+// Revision 0.02 - Syncronizer moved to Clock.v
 // Revision 0.01 - File Created
 // Additional Comments:
 //
@@ -293,36 +294,6 @@ begin
     		Q <= Q - 1;
     	end
     end
-end
-
-endmodule
-
-//////////////////////////////////
-// External Signal Syncronizer
-//////////////////////////////////
-
-module Syncronizer #(
-	parameter WIDTH = 1,
-	parameter DEFAULT_DISABLED = 0
-)
-(
-	input wire clk,
-	input wire rst,
-	input wire en,
-	input wire [WIDTH-1:0] in,
-	output reg [WIDTH-1:0] sync_out
-);
-
-always@(posedge clk)
-begin
-	if(en)
-	begin
-		sync_out = in;
-	end
-	else
-	begin
-		sync_out = DEFAULT_DISABLED;
-	end
 end
 
 endmodule
