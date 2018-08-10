@@ -927,7 +927,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -963,7 +963,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -986,7 +986,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -1032,7 +1032,7 @@ if { [ string equal [get_report_configs -of_objects [get_runs impl_1] impl_1_pla
 set obj [get_report_configs -of_objects [get_runs impl_1] impl_1_place_report_control_sets_0]
 if { $obj != "" } {
 set_property -name "is_enabled" -value "1" -objects $obj
-set_property -name "options.verbose" -value "0" -objects $obj
+set_property -name "options.verbose" -value "1" -objects $obj
 set_property -name "options.cells" -value "" -objects $obj
 set_property -name "options.more_options" -value "" -objects $obj
 
@@ -1074,7 +1074,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -1097,7 +1097,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -1120,7 +1120,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
@@ -1194,7 +1194,7 @@ set_property -name "options.check_timing_verbose" -value "0" -objects $obj
 set_property -name "options.delay_type" -value "" -objects $obj
 set_property -name "options.setup" -value "0" -objects $obj
 set_property -name "options.hold" -value "0" -objects $obj
-set_property -name "options.max_paths" -value "" -objects $obj
+set_property -name "options.max_paths" -value "10" -objects $obj
 set_property -name "options.nworst" -value "" -objects $obj
 set_property -name "options.unique_pins" -value "0" -objects $obj
 set_property -name "options.path_type" -value "" -objects $obj
