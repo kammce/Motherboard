@@ -5,7 +5,7 @@
 //
 // Create Date: 02/20/2018 05:22:16 PM
 // Design Name:
-// Module Name: Memory
+// Module Name: RAM, ROM, FIFO, STACK, SHIFTREGISTER, REGISTER, SHIFTLOADREG, SHIFTLOADREG2
 // Project Name:
 // Target Devices:
 // Tool Versions:
@@ -14,6 +14,8 @@
 // Dependencies:
 //
 // Revision:
+// Revision 0.03 - SHIFTLOADREG2 added
+// Revision 0.02 - SHIFTLOADREG added
 // Revision 0.01 - File Created
 // Additional Comments:
 //
@@ -481,6 +483,37 @@ begin
     else if(load)
     begin
         Q <= D;
+    end
+    else if(en)
+    begin
+        Q <= { Q[WIDTH-2:0], in };
+    end
+end
+
+endmodule
+
+// SHIFTLOADREG2 decouples the load signal from clk and rst
+
+module SHIFTLOADREG2 #(parameter WIDTH = 8)(
+	input wire rst,
+	input wire clk,
+    input wire load,
+	input wire en,
+	input wire in,
+    input wire [WIDTH-1:0] D,
+	output reg [WIDTH-1:0] Q
+);
+
+always @(negedge load)
+begin
+    Q <= D;
+end
+
+always @(posedge clk or posedge rst)
+begin
+    if (rst)
+    begin
+    	Q <= 0;
     end
     else if(en)
     begin
